@@ -7,9 +7,12 @@ const redis = require('redis'),
 const {promisify} = require('util');
 const getAsync = promisify(client.get).bind(client);
 
+
+
 app.get('/jobs', async (req, res) => {
     const jobs = await getAsync('github');
-    return res.send('Hello World!');
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    return res.send(jobs);
 });
 
 app.listen(3001, () => {
