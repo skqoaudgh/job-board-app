@@ -28,11 +28,13 @@ export default function JobModal({job, open, handleClose}) {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title">
-            {job.title} -
-            {job.company}
-            <img className={'detail-logo'} src={job.company_logo} alt=""/>
-        </DialogTitle>
+        <a href={job.company_url} target="_blank" rel="noopener noreferrer">
+          <DialogTitle id="alert-dialog-slide-title">
+              {job.title} -
+              {job.company}
+              <img className={'detail-logo'} src={job.company_logo} alt=""/>
+          </DialogTitle>
+        </a>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description" dangerouslySetInnerHTML={{__html: job.description}} />
         </DialogContent>
